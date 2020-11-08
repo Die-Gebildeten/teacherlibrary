@@ -13,7 +13,8 @@ function DownloadButton(props) {
 export default DownloadButton;
 
 const Button = styled.button`
-width: 40px;
-height: 40px;
-border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  z-index: 10;
 `;

@@ -1,15 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
-import DownloadButton from './components/DownloadButton';
-import CardLabel from './components/CardLabel';
+import Card from "../src/components/Card";
 
 
 function App() {
   return (
-    <div>
-    <CardLabel>Q1/Q2</CardLabel>
-  <DownloadButton />
-  </div>
+    
+    <Card color = "green" tag1="lorem ipsum" tag2="lorem ipsum" tag3="test test test test test" tag4="helloworld"/>
   );
 }
 

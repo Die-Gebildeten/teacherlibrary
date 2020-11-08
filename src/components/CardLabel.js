@@ -1,5 +1,4 @@
 import React from "react";
-import emotion from "@emotion/styled";
 import styled from "@emotion/styled";
 
 const CardLabel = styled.div`
