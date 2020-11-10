@@ -90,10 +90,10 @@ function Card({ label, title, color, text, tag1, tag2, tag3, tag4 }) {
         <p>{text}</p>
       </LowerCard>
       <CardSideTags>
-        <CardTag color={color}>{tag1}</CardTag>
+        {/* <CardTag color={color}>{tag1}</CardTag>
         <CardTag color={color}>{tag2}</CardTag>
-        {tag3 && <CardTag color={color}>{tag3}</CardTag>}
-        {tag4 && <CardTag color={color}>{tag4}</CardTag>}
+        {tag3 && <CardTag color={color}>{tag3}</CardTag>} */}
+        {/* {tag4 && <CardTag color={color}>{tag4}</CardTag>} */}
       </CardSideTags>
     </CardContainer>
   );
