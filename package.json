@@ -8,11 +8,12 @@
     "@testing-library/jest-dom": "^5.11.5",
     "@testing-library/react": "^11.1.1",
     "@testing-library/user-event": "^12.2.0",
+    "babel-plugin-emotion": "^10.0.33",
+    "json-server": "^0.16.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.0",
-    "web-vitals": "^0.2.4",
-    "babel-plugin-emotion": "^10.0.33"
+    "web-vitals": "^0.2.4"
   },
   "scripts": {
     "start": "react-scripts start",
