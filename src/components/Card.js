@@ -26,6 +26,7 @@ const UpperCard = styled.div`
   h2 {
     text-align: center;
     color: whitesmoke;
+    font-size: 1.5rem;
   }
   button {
     position: absolute;
@@ -46,15 +47,11 @@ const LowerCard = styled.div`
   border-bottom-right-radius: inherit;
   display: flex;
   position: relative;
-  overflow-y: scroll;
-  padding-top: 10px;
 
   p {
     height: 100%;
     font-family: "Courier New", Courier, monospace;
     color: #111;
-    justify-self: center;
-    align-self: center;
     text-align: center;
     padding: 10px;
   }
@@ -62,9 +59,7 @@ const LowerCard = styled.div`
 const CardSideTags = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
   justify-content: space-around;
-  left: 0px;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -73,7 +68,7 @@ const CardSideTags = styled.div`
 
   &:hover {
     opacity: 1;
-    left: 120px;
+    right: -200px;
     padding-left: 10px;
   }
 `;
@@ -88,13 +83,14 @@ function Card({ label, title, color, text, tag1, tag2, tag3, tag4 }) {
       </UpperCard>
       <LowerCard>
         <p>{text}</p>
-      </LowerCard>
+        
       <CardSideTags>
-        {/* <CardTag color={color}>{tag1}</CardTag>
+        <CardTag color={color}>{tag1}</CardTag>
         <CardTag color={color}>{tag2}</CardTag>
-        {tag3 && <CardTag color={color}>{tag3}</CardTag>} */}
-        {/* {tag4 && <CardTag color={color}>{tag4}</CardTag>} */}
+        {tag3 && <CardTag color={color}>{tag3}</CardTag>}
+        {tag4 && <CardTag color={color}>{tag4}</CardTag>}
       </CardSideTags>
+      </LowerCard>
     </CardContainer>
   );
 }
