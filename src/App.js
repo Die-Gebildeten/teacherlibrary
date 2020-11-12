@@ -6,12 +6,13 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 function App() {
   return (
     <Router>
-      <Link to="/add">Add Lesson</Link>
+     
       <Switch>
         <Route path="/add">
           <AddLessonPage />
         </Route>
-        <Route path = "/"><LessonPage /></Route>
+        <Route path = "/"><Link to="/add">Add Lesson</Link><LessonPage /></Route>
+       
       </Switch>
     </Router>
   );
