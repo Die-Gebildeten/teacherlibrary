@@ -29,7 +29,7 @@ export default function AddLessonPage() {
         <option value=" Politics"> Politics</option>
         <option value=" English"> English</option>
       </select>
-      <textarea name="Description" ref={register({required: true, maxLength: 160})} />
+      <textarea name="Description" placeholder="Description" ref={register({required: true, maxLength: 160})} />
       <select name="Grade" ref={register({ required: true })}>
         <option value="1/2">1/2</option>
         <option value=" 3/4"> 3/4</option>
