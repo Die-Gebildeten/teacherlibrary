@@ -43,7 +43,7 @@ export default function AddLessonPage() {
       <input type="text" placeholder="tag2" name="tag2" ref={register({maxLength: 100})} />
       <input type="text" placeholder="tag3" name="tag3" ref={register({maxLength: 100})} />
       <input type="text" placeholder="tag4" name="tag4" ref={register({maxLength: 100})} />
-
+      <input type="file" name="file" ref={register({required: true})}/>
       <input type="submit" />
     </form>);
 }
