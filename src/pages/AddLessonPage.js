@@ -9,12 +9,6 @@ const FormContainer = styled.section`
 `;
 
 
-const SubmitContainer = styled.div``;
-
-export default function AddLessonPage() {
-  const { register, handleSubmit, errors } = useForm();
-
-
 export default function AddLessonPage() {
   const { register, watch, errors, handleSubmit } = useForm();
   const watchTitle = watch("title", "");
