@@ -49,5 +49,6 @@
     "plugins": [
       "emotion"
     ]
-  }
+  },
+  "proxy": "http://localhost:3000"
 }

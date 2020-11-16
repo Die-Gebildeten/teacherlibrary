@@ -1,5 +1,5 @@
 import React from "react";
-import { getLessons } from "../api/getLessons";
+import { getLessons } from "../api/lessons";
 import Card from "../components/Card";
 import useAsync from "../hooks/useAsync";
 import styled from "@emotion/styled";
