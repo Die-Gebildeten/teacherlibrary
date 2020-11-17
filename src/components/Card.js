@@ -6,6 +6,7 @@ import CardTag from "../components/CardTag";
 
 
 const CardContainer = styled.div`
+  position: relative;
   display: grid;
   grid-template-rows: 50% 50%;
   width: 250px;
@@ -13,6 +14,13 @@ const CardContainer = styled.div`
   border-radius: 20px;
   margin: 2rem;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+
+  button {
+    position: absolute;
+    bottom: 180px;
+    right: 3%;
+    z-index: 3;
+  }
 `;
 
 const UpperCard = styled.div`
@@ -33,11 +41,7 @@ const UpperCard = styled.div`
     margin: 0.3rem;
     margin-top: 1rem;
   }
-  button {
-    position: absolute;
-    bottom: 2%;
-    right: 3%;
-  }
+ 
   div {
     position: absolute;
     top: 3%;
@@ -59,6 +63,7 @@ const LowerCard = styled.div`
     color: #111;
     text-align: center;
     padding: 10px;
+    margin-top: 10px;
   }
 `;
 const CardSideTags = styled.div`
@@ -81,10 +86,10 @@ const CardSideTags = styled.div`
 function Card({ label, title, color, text, tag1, tag2, tag3, tag4 }) {
   return (
     <CardContainer color={color}>
+        <DownloadButton />
       <UpperCard color={color}>
         <CardLabel>{label}</CardLabel>
         <h2>{title}</h2>
-        <DownloadButton />
       </UpperCard>
       <LowerCard>
         <p>{text}</p>
