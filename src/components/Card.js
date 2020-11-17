@@ -30,6 +30,8 @@ const UpperCard = styled.div`
     text-align: center;
     color: whitesmoke;
     font-size: 1.5rem;
+    margin: 0.3rem;
+    margin-top: 1rem;
   }
   button {
     position: absolute;
@@ -38,7 +40,7 @@ const UpperCard = styled.div`
   }
   div {
     position: absolute;
-    top: 5%;
+    top: 3%;
     left: 5%;
   }
 `;
