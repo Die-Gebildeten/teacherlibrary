@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import {postLesson} from "../api/lessons"
+import {postLesson} from "../api/lessons";
+import {subjects} from "../globalSettings";
 
 export default function AddLessonPage() {
   const { register, watch, errors, handleSubmit } = useForm();
@@ -21,21 +22,13 @@ export default function AddLessonPage() {
         <option value="" selected disabled hidden>
           choose subject
         </option>
-        <option value="Maths">Maths</option>
-        <option value=" German"> German</option>
-        <option value=" Chemistry"> Chemistry</option>
-        <option value=" Physics"> Physics</option>
-        <option value=" Biology"> Biology</option>
-        <option value=" Sports"> Sports</option>
-        <option value=" Art"> Art</option>
-        <option value=" Geography"> Geography</option>
-        <option value=" Spanish"> Spanish</option>
-        <option value=" French"> French</option>
-        <option value=" Religion"> Religion</option>
-        <option value=" Ethics"> Ethics</option>
-        <option value=" Computer Science"> Computer Science</option>
-        <option value=" Politics"> Politics</option>
-        <option value=" English"> English</option>
+        {subjects.map((subject) =>(
+          
+          <option value={subject.subject}>{subject.subject}</option>
+        ))
+        
+        }
+        
       </select>
       <textarea
         name="description"

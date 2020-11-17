@@ -4,7 +4,7 @@
       "id": "001",
       "label": "5-6",
       "title": "Umfang und Inhalt eines Kreises",
-      "subject": "Mathematik",
+      "subject": "Maths",
       "description": "Die Formel zur Berechnung des Flächeninhalts A eines Kreises mit dem Radius r lautet: A=πr2. Jeder Punkt auf der Kreislinie eines Kreises hat den gleichen Abstand vom Mittelpunkt.",
       "tag1": "geometry",
       "tag2": "Zirkel",
@@ -15,7 +15,7 @@
       "id": "002",
       "label": "5-6",
       "title": "Umfang und Inhalt eines Kreises unter besonderer Berücksichtung von ...",
-      "subject": "Mathematik",
+      "subject": "Maths",
       "description": "Die Formel zur Berechnung des Flächeninhalts A eines Kreises mit dem Radius r lautet: A=πr2.",
       "tag1": "Inhalte in verschiedenen Formaten bearbeiten, zusammenführen und teilen",
       "tag2": "Zirkel",
@@ -26,7 +26,7 @@
       "id": "003",
       "label": "5-6",
       "title": "Umfang und Inhalt eines Kreises",
-      "subject": "Mathematik",
+      "subject": "Maths",
       "description": "Die Formel zur Berechnung des Flächeninhalts A eines Kreises mit dem Radius r lautet: A=πr2.",
       "tag1": "geometry",
       "tag2": "Zirkel",
@@ -37,7 +37,7 @@
       "id": "004",
       "label": "5-6",
       "title": "Umfang und Inhalt eines Kreises",
-      "subject": "Mathematik",
+      "subject": "Maths",
       "description": "Die Formel zur Berechnung des Flächeninhalts A eines Kreises mit dem Radius r lautet: A=πr2.",
       "tag1": "geometry",
       "tag2": "Zirkel",
@@ -48,7 +48,7 @@
       "id": "005",
       "label": "5-6",
       "title": "Umfang und Inhalt eines Kreises",
-      "subject": "Mathematik",
+      "subject": "Maths",
       "description": "Die Formel zur Berechnung des Flächeninhalts A eines Kreises mit dem Radius r lautet: A=πr2.",
       "tag1": "geometry",
       "tag2": "Zirkel",
@@ -69,7 +69,7 @@
     },
     {
       "title": "Squirrel",
-      "subject": " Biology",
+      "subject": "Biology",
       "description": "life of squirrel",
       "grade": " 3/4",
       "tag1": "trees",
@@ -78,6 +78,18 @@
       "tag4": "",
       "file": {},
       "id": "zdj33u6"
+    },
+    {
+      "title": "Search function",
+      "subject": "Computer Science",
+      "description": "Search function",
+      "grade": " 12",
+      "tag1": "javascript",
+      "tag2": "search ",
+      "tag3": "",
+      "tag4": "",
+      "file": {},
+      "id": "i9mvN1B"
     }
   ]
 }
