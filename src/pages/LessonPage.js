@@ -29,28 +29,27 @@ const CardSection = styled.section`
 function LessonPage(props) {
   const { data: lessons } = useAsync(getLessons);
 
-function findLessonColor(subject1) {
-  const foundSubject = subjects.find(subject => subject == subject1);
-  console.log(foundSubject)
+function findLessonColor(subjectDB) {
+  const foundSubject = subjects.find(subject => subject.subject === subjectDB);
+  return (foundSubject.color);
 }
 
 
   return (
     <CardSection>
       {lessons?.map((lesson) => (
-        //  <Card
-        //     id={lesson.id}
-        //     label={lesson.label}
-        //     title={lesson.title}
-        //     color={lesson.subject}
-        //     text={lesson.description}
-        //     tag1={lesson.tag1}
-        //     tag2={lesson.tag2}
-        //     tag3={lesson.tag3}
-        //     tag4={lesson.tag4}
-        //   />
-        findLessonColor(lesson.subject)
-  
+         <Card
+            key={lesson.id}
+            label={lesson.label}
+            title={lesson.title}
+            color={findLessonColor(lesson.subject)}
+            text={lesson.description}
+            tag1={lesson.tag1}
+            tag2={lesson.tag2}
+            tag3={lesson.tag3}
+            tag4={lesson.tag4}
+          />
+        
       ))}
     </CardSection>
   );
