@@ -13,7 +13,8 @@ function App() {
         <Route path="/add">
           <AddLessonPage />
         </Route>
-        <Route path = "/"><LessonPage /></Route>
+        <Route path = "/"><Link to="/add">Add Lesson</Link><LessonPage /></Route>
+       
       </Switch>
     </Router>
   );
