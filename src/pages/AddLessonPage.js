@@ -2,27 +2,82 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import styled from "@emotion/styled";
 
-const FormContainer = styled.form`
+const Container = styled.div`
+font-family: 'Lucida Sans';
+width: 100vw;
+min-height: 100vh;
+background-color: #f7fcfc;
+padding: 1rem;
+display: flex;
+flex-direction: column;
+align-items: center;
+
+h1{
+  font-weight:normal;
+   font-size: 1.5rem;
+}`
+
+
+
+const Form = styled.form`
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 50px;
-  margin: 40px;
-  background: rgb(238, 174, 202);
-  background: radial-gradient(
-    circle,
-    rgba(238, 174, 202, 1) 0%,
-    rgba(148, 187, 233, 1) 100%
-  );
+  margin-top: 30px;
   > * {
     text-align: center;
     width: 300px;
+    height: 30px;
+    margin: 12px;
+    border-radius: 7px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  input[type=file]{
+    display: none;
+  }
+  input[type=submit]{
+    background-color: #4287f5;
+    color: white;
+    font-weight: bolder;
+  }
+
+  label{
+    padding-top: 5px;
+    font-size: small;
+    border: 1px solid black;
+    
+    :hover{
+      background-color: #b6c0d1
+    }
+  }
+
+`;
+
+const MaxLengthInput = styled.div`
+  position: relative;
+  height: 100px;
+  > textarea{
+height: 100%;
+width: 100%;
+border: inherit;
+box-shadow: inherit;
+border-radius: inherit;
+
+::placeholder {
+  font-family: 'Lucida Sans';
+  font-size: small;
+}
   }
 `;
 
-const FileSubmitContainer = styled.div``;
+const CharacterCounter = styled.span`
+  position: absolute;
+  bottom: 1px;
+  left: 2px;
+  font-size: small;
+`;
 
-const TitleContainer = styled.input``;
+
 
 export default function AddLessonPage() {
   const { register, watch, errors, handleSubmit } = useForm();
@@ -33,17 +88,18 @@ export default function AddLessonPage() {
   console.log(errors);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <FormContainer>
-        <h1>Add a Lesson</h1>
-
-        <input
-          type="text"
-          placeholder="Title"
-          name="title"
-          ref={register({ required: true, maxLength: 80 })}
-        />
-        <p>You have {80 - watchTitle.length} characters left</p>
+    <Container>
+      <h1>Add a Unit</h1>
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <MaxLengthInput>
+          <textarea
+            type="text"
+            placeholder="Title"
+            name="title"
+            ref={register({ required: true, maxLength: 80 })}
+          />
+          <CharacterCounter>{80 - watchTitle.length} </CharacterCounter>
+        </MaxLengthInput>
         <select name="subject" ref={register({ required: true })}>
           <option value="" selected disabled hidden>
             choose subject
@@ -64,13 +120,14 @@ export default function AddLessonPage() {
           <option value=" Politics"> Politics</option>
           <option value=" English"> English</option>
         </select>
-        <textarea
-          name="description"
-          placeholder="Description"
-          ref={register({ required: true, maxLength: 160 })}
-        />
-        <p>You have {160 - watchDescription.length} characters left</p>
-
+        <MaxLengthInput>
+          <textarea
+            name="description"
+            placeholder="Description"
+            ref={register({ required: true, maxLength: 160 })}
+          />
+          <CharacterCounter> {160 - watchDescription.length}</CharacterCounter>
+        </MaxLengthInput>
         <select name="grade" ref={register({ required: true })}>
           <option value="" selected disabled hidden>
             choose grade
@@ -107,16 +164,15 @@ export default function AddLessonPage() {
           name="tag4"
           ref={register({ maxLength: 100 })}
         />
-        <label for="file">file</label>
+        <label for="file">Upload unit</label>
         <input
           type="file"
           name="file"
           id="file"
           ref={register({ required: true })}
         />
-
         <input type="submit" />
-      </FormContainer>
-    </form>
+      </Form>
+      </Container>
   );
 }
