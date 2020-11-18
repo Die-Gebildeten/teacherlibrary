@@ -8,12 +8,12 @@ function App() {
   return (
     <Router>
       <GlobalStyles/>
-      <Link to="/add">Add Lesson</Link>
       <Switch>
         <Route path="/add">
+          <Link to="/">Back to Main Page</Link>
           <AddLessonPage />
         </Route>
-        <Route path = "/"><Link to="/add">Add Lesson</Link><LessonPage /></Route>
+        <Route path = "/"><Link to="/add">Add Unit</Link><LessonPage /></Route>
        
       </Switch>
     </Router>
