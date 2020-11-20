@@ -86,6 +86,7 @@ export default function AddLessonPage() {
   const watchTitle = watch("title", "");
   const watchDescription = watch("description", "");
   const onSubmit = (data) => postLesson(data);
+  console.log(errors);
 
   return (
     <Container>
