@@ -1,5 +1,5 @@
 import React from "react";
-import { getLessons } from "../api/lessons";
+import { getLessonsGraphQL } from "../api/lessons";
 import Card from "../components/Card";
 import useAsync from "../hooks/useAsync";
 import styled from "@emotion/styled";
@@ -27,7 +27,7 @@ const CardSection = styled.section`
 `;
 
 function LessonPage(props) {
-  const { data: lessons } = useAsync(getLessons);
+  const { data: lessons } = useAsync(getLessonsGraphQL);
 
 function findLessonColor(subjectDB) {
   const foundSubject = subjects.find(subject => subject.subject === subjectDB);
@@ -40,7 +40,7 @@ function findLessonColor(subjectDB) {
       {lessons?.map((lesson) => (
          <Card
             key={lesson.id}
-            label={lesson.label}
+            grade={lesson.grade}
             title={lesson.title}
             color={findLessonColor(lesson.subject)}
             text={lesson.description}

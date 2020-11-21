@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import {postLesson} from "../api/lessons";
+import {postLesson, postLessonGraphQL} from "../api/lessons";
 import {subjects} from "../globalSettings";
 import styled from "@emotion/styled";
 
@@ -85,7 +85,7 @@ export default function AddLessonPage() {
   const { register, watch, errors, handleSubmit } = useForm();
   const watchTitle = watch("title", "");
   const watchDescription = watch("description", "");
-  const onSubmit = (data) => postLesson(data);
+  const onSubmit = (data) => postLessonGraphQL(data);
   console.log(errors);
 
   return (

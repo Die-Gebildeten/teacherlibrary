@@ -1,0 +1,12 @@
+type Unit @model {
+  id: ID!
+  title: String!
+  subject: String!
+  description: String!
+  grade: String!
+  tag1: String
+  tag2: String
+  tag3: String
+  tag4: String
+  file: String
+}
