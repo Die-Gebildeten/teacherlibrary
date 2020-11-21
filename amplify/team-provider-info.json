@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-teacherlibrary-dev-135212-authRole",
+      "UnauthRoleArn": "arn:aws:iam::482853480623:role/amplify-teacherlibrary-dev-135212-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::482853480623:role/amplify-teacherlibrary-dev-135212-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-teacherlibrary-dev-135212-deployment",
+      "UnauthRoleName": "amplify-teacherlibrary-dev-135212-unauthRole",
+      "StackName": "amplify-teacherlibrary-dev-135212",
+      "StackId": "arn:aws:cloudformation:eu-central-1:482853480623:stack/amplify-teacherlibrary-dev-135212/60a19ca0-2bf8-11eb-9ae9-0ad1bb830c16",
+      "AmplifyAppId": "d6j4moy7mlxu6"
+    },
+    "categories": {
+      "auth": {
+        "teacherlibrary57435b34": {}
+      }
+    }
+  }
+}
