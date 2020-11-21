@@ -8,10 +8,7 @@ import {
   Link,
 } from "react-router-dom";
 import GlobalStyles from "./GlobalStyles";
-import {
-  withAuthenticator,
-  AmplifySignOut,
-} from "@aws-amplify/ui-react";
+
 
 function App() {
   return (
@@ -29,11 +26,10 @@ function App() {
             Add Unit
           </Link>
           <LessonPage />
-          <AmplifySignOut />
         </Route>
       </Switch>
     </Router>
   );
 }
 
-export default withAuthenticator(App);
+export default App;
