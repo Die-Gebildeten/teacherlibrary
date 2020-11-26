@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
-import DownloadButton from "../components/DownloadButton";
+import DownloadLink from "./DownloadLink";
 import CardLabel from "../components/CardLabel";
 import CardTag from "../components/CardTag";
-
 
 const CardContainer = styled.div`
   position: relative;
@@ -13,9 +12,10 @@ const CardContainer = styled.div`
   height: 400px;
   border-radius: 20px;
   margin: 2rem;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 20px 50px
+    rgba(0, 0, 0, 0.8);
 
-  button {
+  a {
     position: absolute;
     bottom: 180px;
     right: 3%;
@@ -29,9 +29,8 @@ const UpperCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: ${props => 
-      props.color
-    };
+  background-color: ${(props) =>
+    props.color};
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
   h2 {
@@ -41,7 +40,7 @@ const UpperCard = styled.div`
     margin: 0.3rem;
     margin-top: 1rem;
   }
- 
+
   div {
     position: absolute;
     top: 3%;
@@ -59,7 +58,8 @@ const LowerCard = styled.div`
 
   p {
     height: 100%;
-    font-family: "Courier New", Courier, monospace;
+    font-family: "Courier New", Courier,
+      monospace;
     color: #111;
     text-align: center;
     padding: 10px;
@@ -83,23 +83,47 @@ const CardSideTags = styled.div`
   }
 `;
 
-function Card({ label, title, color, text, tag1, tag2, tag3, tag4 }) {
+function Card({
+  label,
+  title,
+  color,
+  text,
+  tag1,
+  tag2,
+  tag3,
+  tag4,
+  link,
+}) {
   return (
     <CardContainer color={color}>
-        <DownloadButton />
+      <DownloadLink link={link} />
       <UpperCard color={color}>
         <CardLabel>{label}</CardLabel>
         <h2>{title}</h2>
       </UpperCard>
       <LowerCard>
         <p>{text}</p>
-        
-      <CardSideTags>
-        <CardTag color={color}>{tag1}</CardTag>
-        <CardTag color={color}>{tag2}</CardTag>
-        {tag3 && <CardTag color={color}>{tag3}</CardTag>}
-        {tag4 && <CardTag color={color}>{tag4}</CardTag>}
-      </CardSideTags>
+
+        <CardSideTags>
+          <CardTag color={color}>
+            {tag1}
+          </CardTag>
+          {tag2 && (
+            <CardTag color={color}>
+              {tag2}
+            </CardTag>
+          )}
+          {tag3 && (
+            <CardTag color={color}>
+              {tag3}
+            </CardTag>
+          )}
+          {tag4 && (
+            <CardTag color={color}>
+              {tag4}
+            </CardTag>
+          )}
+        </CardSideTags>
       </LowerCard>
     </CardContainer>
   );

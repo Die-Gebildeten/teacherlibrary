@@ -1,6 +1,6 @@
 {
     "identityPoolName": "teacherlibrary57435b34_identitypool_57435b34",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "teache57435b34",
     "userPoolName": "teacherlibrary57435b34_userpool_57435b34",
     "autoVerifiedAttributes": [

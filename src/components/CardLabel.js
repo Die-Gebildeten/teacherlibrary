@@ -9,7 +9,8 @@ const CardLabel = styled.div`
   padding-top: 1.5px;
   font-size: 18px;
   font-weight: bold;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Courier New", Courier,
+    monospace;
 `;
 
 export default CardLabel;

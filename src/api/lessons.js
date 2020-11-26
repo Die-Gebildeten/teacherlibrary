@@ -1,49 +1,21 @@
-import { API } from "aws-amplify";
 import {
   createUnit,
   deleteUnit,
 } from "../graphql/mutations";
 import { listUnits } from "../graphql/queries";
-
-export const getLessons = async () => {
-  const response = await fetch(
-    "/lessons"
-  );
-  if (!response.ok) {
-    throw response;
-  }
-  const result = await response.json();
-  return result;
-};
-
-export async function postLesson(
-  lesson
-) {
-  const response = await fetch(
-    "/lessons",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type":
-          "application/json",
-      },
-      body: JSON.stringify(lesson),
-    }
-  );
-  if (!response.ok) {
-    throw new Error(response);
-  }
-  const result = await response.json();
-  console.log(result);
-  return result;
-}
+import {
+  API,
+  Storage,
+} from "aws-amplify";
 
 export async function getLessonsGraphQL() {
   const lessons = await API.graphql({
     query: listUnits,
   });
   console.log(
-    lessons.data.listUnits.items
+    lessons.data.listUnits.items.map(
+      (lesson) => lesson.file
+    )
   );
   return lessons.data.listUnits.items;
 }
@@ -51,6 +23,9 @@ export async function getLessonsGraphQL() {
 export async function postLessonGraphQL(
   unit
 ) {
+  const file = unit.file[0];
+  await Storage.put(file.name, file);
+  unit.file = file.name;
   await API.graphql({
     query: createUnit,
     variables: { input: unit },
