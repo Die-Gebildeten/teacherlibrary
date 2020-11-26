@@ -77,6 +77,7 @@ function LessonPage(props) {
     );
     console.log(
       apiData.data.listUnits.items
+
     );
   }
 

@@ -2,9 +2,9 @@ import React from "react";
 import DownloadIcon from "../assets/icons/downloadicon.svg";
 import styled from "@emotion/styled";
 
-function DownloadLink(link) {
+function DownloadLink(props) {
   return (
-    <Link href={link} target="_blank">
+    <Link href={props.link} target="_blank">
       <img
         src={DownloadIcon}
         alt="Download Button"
