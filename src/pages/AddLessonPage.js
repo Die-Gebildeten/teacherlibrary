@@ -1,7 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import {
-  postLesson,
   postLessonGraphQL,
 } from "../api/lessons";
 import { subjects } from "../globalSettings";

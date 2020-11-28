@@ -1,6 +1,5 @@
 import {
   createUnit,
-  deleteUnit,
 } from "../graphql/mutations";
 import { listUnits } from "../graphql/queries";
 import {

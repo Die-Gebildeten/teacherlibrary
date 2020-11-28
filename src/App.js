@@ -7,33 +7,66 @@ import {
   Route,
   Link,
 } from "react-router-dom";
-import GlobalStyles from "./GlobalStyles";
 import {
-  withAuthenticator,
+  AmplifyAuthenticator,
   AmplifySignOut,
+  AmplifySignIn,
+  AmplifySignUp,
 } from "@aws-amplify/ui-react";
 
 function App() {
   return (
-    <Router>
-      <GlobalStyles />
-      <Switch>
-        <Route path="/add">
-          <Link to="/">
-            Back to Main Page
-          </Link>
-          <AddLessonPage />
-        </Route>
-        <Route path="/">
-          <Link to="/add">
-            Add Unit
-          </Link>
-          <LessonPage />
-          <AmplifySignOut />
-        </Route>
-      </Switch>
-    </Router>
+    <>
+      <AmplifyAuthenticator usernameAlias="email">
+        <AmplifySignUp
+          slot="sign-up"
+          usernameAlias="email"
+          formFields={[
+            {
+              type: "email",
+              label:
+                "Enter your school e-mail adress",
+              placeholder:
+                "e-mail",
+              required: true,
+            },
+            {
+              type: "password",
+              label:
+                "Choose a password",
+              placeholder:
+                "password",
+              required: true,
+            }
+        
+          ]}
+        />
+        <AmplifySignIn
+          slot="sign-in"
+          usernameAlias="email"
+          headerText="Welcome to teacherlibrary"
+        />
+
+        <Router>
+          <Switch>
+            <Route path="/add">
+              <Link to="/">
+                Back to Main Page
+              </Link>
+              <AddLessonPage />
+            </Route>
+            <Route path="/">
+              <LessonPage />
+              <Link to="/add">
+                Add Unit
+              </Link>
+              <AmplifySignOut />
+            </Route>
+          </Switch>
+        </Router>
+      </AmplifyAuthenticator>
+    </>
   );
 }
 
-export default withAuthenticator(App);
+export default App;
