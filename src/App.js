@@ -57,9 +57,6 @@ function App() {
             </Route>
             <Route path="/">
               <LessonPage />
-              <Link to="/add">
-                Add Unit
-              </Link>
               <AmplifySignOut />
             </Route>
           </Switch>

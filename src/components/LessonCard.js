@@ -3,25 +3,8 @@ import styled from "@emotion/styled";
 import DownloadLink from "./DownloadLink";
 import CardLabel from "./CardLabel";
 import CardTag from "./CardTag";
+import Card from "./Card";
 
-const CardContainer = styled.div`
-  position: relative;
-  display: grid;
-  grid-template-rows: 50% 50%;
-  width: 250px;
-  height: 400px;
-  border-radius: 20px;
-  margin: 2rem;
-  box-shadow: 0 20px 50px
-    rgba(0, 0, 0, 0.8);
-
-  a {
-    position: absolute;
-    bottom: 180px;
-    right: 3%;
-    z-index: 3;
-  }
-`;
 
 const UpperCard = styled.div`
   grid-row: 1 / 2;
@@ -95,7 +78,7 @@ function LessonCard({
   link,
 }) {
   return (
-    <CardContainer color={color}>
+    <Card>
       <DownloadLink link={link} />
       <UpperCard color={color}>
         <CardLabel>{label}</CardLabel>
@@ -125,7 +108,7 @@ function LessonCard({
           )}
         </CardSideTags>
       </LowerCard>
-    </CardContainer>
+    </Card>
   );
 }
 

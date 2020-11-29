@@ -6,6 +6,7 @@ import LessonCard from "../components/LessonCard";
 import { subjects } from "../globalSettings";
 import CardSection from "../components/CardSection";
 import {fetchLessons} from "../api/lessons";
+import AddLessonCard from "../components/AddLessonCard";
 
 
 function LessonPage(props) {
@@ -45,6 +46,7 @@ function LessonPage(props) {
           link={lesson.file}
         />
       ))}
+      <AddLessonCard link="/add"/>
     </CardSection>
   );
 }
