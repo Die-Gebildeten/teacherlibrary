@@ -54,6 +54,11 @@ const Form = styled.form`
       background-color: #b6c0d1;
     }
   }
+  p{
+    background-color: darkred;
+    padding: 3px;
+    color: white;
+  }
 `;
 
 const MaxLengthInput = styled.div`
@@ -86,15 +91,17 @@ export default function AddLessonPage() {
     watch,
     errors,
     handleSubmit,
+    formState
   } = useForm();
   const watchTitle = watch("title", "");
   const watchDescription = watch(
     "description",
     ""
   );
-  const onSubmit = (data) =>
+  const onSubmit = (data) =>{
     postLessonGraphQL(data);
-  console.log(errors);
+    console.log(formState);
+  }
 
   return (
     <Container>
@@ -113,7 +120,8 @@ export default function AddLessonPage() {
               required: true,
               maxLength: 80,
             })}
-          />
+            />
+            {errors.title && <p>Please enter a title</p>}
           <CharacterCounter>
             {80 - watchTitle.length}{" "}
           </CharacterCounter>
@@ -129,17 +137,18 @@ export default function AddLessonPage() {
             selected
             disabled
             hidden
-          >
+            >
             choose subject
           </option>
           {subjects.map((subject) => (
             <option
-              value={subject.subject}
+            value={subject.subject}
             >
               {subject.subject}
             </option>
           ))}
         </select>
+          {errors.subject && <p>Please choose a subject</p>}
         <MaxLengthInput>
           <textarea
             name="description"
@@ -148,13 +157,14 @@ export default function AddLessonPage() {
               required: true,
               maxLength: 160,
             })}
-          />
+            />
           <CharacterCounter>
             {" "}
             {160 -
               watchDescription.length}
           </CharacterCounter>
         </MaxLengthInput>
+        {errors.description && <p>Please describe your unit</p>}
         <select
           name="grade"
           ref={register({
@@ -197,6 +207,7 @@ export default function AddLessonPage() {
             12
           </option>
         </select>
+        {errors.grade && <p>Please choose a grade</p>}
         <input
           type="text"
           placeholder="tag1"
@@ -230,9 +241,7 @@ export default function AddLessonPage() {
             maxLength: 100,
           })}
         />
-        <label for="file">
-          Upload unit
-        </label>
+  
         <input
           type="file"
           name="file"
@@ -241,6 +250,7 @@ export default function AddLessonPage() {
             required: true,
           })}
         />
+        {errors.file && <p>Please choose a file to upload</p>}
         <input type="submit" />
       </Form>
     </Container>
