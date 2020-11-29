@@ -30,3 +30,27 @@ export async function postLessonGraphQL(
     variables: { input: unit },
   });
 }
+
+export async function fetchLessons(updateState) {
+  const apiData = await API.graphql({
+    query: listUnits,
+  });
+  const lessonsFromAPI =
+    apiData.data.listUnits.items;
+  await Promise.all(
+    lessonsFromAPI.map(
+      async (lesson) => {
+        if (lesson.file) {
+          const link = await Storage.get(
+            lesson.file
+          );
+          lesson.file = link;
+        }
+        return lesson;
+      }
+    )
+  );
+  updateState(
+    apiData.data.listUnits.items
+  );
+}

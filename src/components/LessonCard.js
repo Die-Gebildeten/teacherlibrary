@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
 import DownloadLink from "./DownloadLink";
-import CardLabel from "../components/CardLabel";
-import CardTag from "../components/CardTag";
+import CardLabel from "./CardLabel";
+import CardTag from "./CardTag";
 
 const CardContainer = styled.div`
   position: relative;
@@ -83,7 +83,7 @@ const CardSideTags = styled.div`
   }
 `;
 
-function Card({
+function LessonCard({
   label,
   title,
   color,
@@ -129,4 +129,4 @@ function Card({
   );
 }
 
-export default Card;
+export default LessonCard;

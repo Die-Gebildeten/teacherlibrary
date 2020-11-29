@@ -2,47 +2,11 @@ import React, {
   useEffect,
   useState,
 } from "react";
-import Card from "../components/Card";
-import styled from "@emotion/styled";
+import LessonCard from "../components/LessonCard";
 import { subjects } from "../globalSettings";
-import {
-  Storage,
-  API,
-} from "aws-amplify";
-import { listUnits } from "../graphql/queries";
+import CardSection from "../components/CardSection";
+import {fetchLessons} from "../api/lessons";
 
-const CardSection = styled.section`
-  display: grid;
-  grid-template-columns: repeat(
-    5,
-    minmax(auto, 50px)
-  );
-  @media (min-width: 900px) {
-    grid-template-columns: repeat(
-      10,
-      minmax(auto, 50px)
-    );
-  }
-
-  @media (min-width: 1200px) {
-    grid-template-columns: repeat(
-      15,
-      minmax(auto, 50px)
-    );
-  }
-  @media (min-width: 1600px) {
-    grid-template-columns: repeat(
-      20,
-      minmax(auto, 50px)
-    );
-  }
-  grid-gap: 40px;
-  align-items: center;
-  justify-content: center;
-  & * {
-    grid-column: span 4;
-  }
-`;
 
 function LessonPage(props) {
   const [
@@ -50,36 +14,10 @@ function LessonPage(props) {
     setLessons,
   ] = useState([]);
   useEffect(() => {
-    fetchLessons();
+    fetchLessons(setLessons);
   }, []);
 
-  async function fetchLessons() {
-    const apiData = await API.graphql({
-      query: listUnits,
-    });
-    const lessonsFromAPI =
-      apiData.data.listUnits.items;
-    await Promise.all(
-      lessonsFromAPI.map(
-        async (lesson) => {
-          if (lesson.file) {
-            const link = await Storage.get(
-              lesson.file
-            );
-            lesson.file = link;
-          }
-          return lesson;
-        }
-      )
-    );
-    setLessons(
-      apiData.data.listUnits.items
-    );
-    console.log(
-      apiData.data.listUnits.items
 
-    );
-  }
 
   function findLessonColor(subjectDB) {
     const foundSubject = subjects.find(
@@ -92,7 +30,7 @@ function LessonPage(props) {
   return (
     <CardSection>
       {lessons?.map((lesson) => (
-        <Card
+        <LessonCard
           key={lesson.id}
           label={lesson.grade}
           title={lesson.title}
