@@ -36,24 +36,15 @@ const Form = styled.form`
     box-shadow: 2px 2px 5px
       rgba(0, 0, 0, 0.2);
   }
-  input[type="file"] {
-    /* display: none; */
-  }
+ 
   input[type="submit"] {
     background-color: #4287f5;
     color: white;
     font-weight: bolder;
+
+
   }
 
-  label {
-    padding-top: 5px;
-    font-size: small;
-    border: 1px solid black;
-
-    :hover {
-      background-color: #b6c0d1;
-    }
-  }
   p{
     background-color: darkred;
     padding: 3px;
@@ -105,6 +96,7 @@ export default function AddLessonPage() {
       setIsSubmitting(true);
    await postLessonGraphQL(data);
     setIsSubmitting(false);
+    alert ("Your unit has been uploaded")
     }
     catch(e){
       setIsSubmitting(true);
@@ -262,7 +254,7 @@ export default function AddLessonPage() {
           })}
         />
         {errors.file && <p>Please choose a file to upload</p>}
-        <input type="submit" disabled = {isSubmitting}/>
+        <input type="submit" disabled = {isSubmitting} value= {isSubmitting ? "Uploading..." : "Submit"}/>
         
       </Form>
     </Container>
