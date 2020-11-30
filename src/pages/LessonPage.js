@@ -30,6 +30,7 @@ function LessonPage(props) {
 
   return (
     <CardSection>
+    <AddLessonCard link="/add"/>
       {lessons?.map((lesson) => (
         <LessonCard
           key={lesson.id}
@@ -46,7 +47,6 @@ function LessonPage(props) {
           link={lesson.file}
         />
       ))}
-      <AddLessonCard link="/add"/>
     </CardSection>
   );
 }

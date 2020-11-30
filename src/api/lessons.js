@@ -25,10 +25,18 @@ export async function postLessonGraphQL(
   const file = unit.file[0];
   await Storage.put(file.name, file);
   unit.file = file.name;
-  await API.graphql({
-    query: createUnit,
-    variables: { input: unit },
-  });
+  try {
+    const apiData= await API.graphql({
+      query: createUnit,
+      variables: { input: unit },
+    });
+    console.log(apiData);
+  }
+  catch(e){
+    console.log(e);
+    alert("Oops, something went wrong...please try again.")
+  }
+  
 }
 
 export async function fetchLessons(updateState) {

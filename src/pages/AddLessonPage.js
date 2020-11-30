@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import {
   postLessonGraphQL,
@@ -91,16 +91,26 @@ export default function AddLessonPage() {
     watch,
     errors,
     handleSubmit,
-    formState
   } = useForm();
   const watchTitle = watch("title", "");
   const watchDescription = watch(
     "description",
     ""
   );
-  const onSubmit = (data) =>{
-    postLessonGraphQL(data);
-    console.log(formState);
+
+   const [isSubmitting, setIsSubmitting] = useState(false); 
+
+  async function onSubmit(data) {
+    try{
+      setIsSubmitting(true);
+   await postLessonGraphQL(data);
+    setIsSubmitting(false);
+    }
+    catch(e){
+      setIsSubmitting(true);
+      alert ("Oops, something went wrong! Please try again...")
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -217,6 +227,7 @@ export default function AddLessonPage() {
             maxLength: 100,
           })}
         />
+         {errors.tag1 && <p>Please choose at least one tag</p>}
         <input
           type="text"
           placeholder="tag2"
@@ -238,8 +249,8 @@ export default function AddLessonPage() {
           placeholder="tag4"
           name="tag4"
           ref={register({
-            maxLength: 100,
-          })}
+          maxLength: 100,
+           })}
         />
   
         <input
@@ -251,7 +262,8 @@ export default function AddLessonPage() {
           })}
         />
         {errors.file && <p>Please choose a file to upload</p>}
-        <input type="submit" />
+        <input type="submit" disabled = {isSubmitting}/>
+        
       </Form>
     </Container>
   );
