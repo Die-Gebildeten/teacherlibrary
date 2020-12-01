@@ -31,11 +31,17 @@ function LessonPage(props) {
 
   async function handleDelete(id){
     try{
+      if (window.confirm("Are you sure you want to delete your lesson?")){
       const newLessonsArray = lessons.filter(lesson=> lesson.id!== id);
-      setLessons(newLessonsArray);
       await API.graphql({query: deleteUnit, variables: {input: {id}}})
+      setLessons(newLessonsArray);
+      }
+      else {
+        return;
+      }
     }
     catch(e){
+      alert("You are only permitted to delete your own lessons");
       console.log(e);
     }
   }
