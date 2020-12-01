@@ -20,11 +20,10 @@ const Container = styled.div`
     font-size: 1.5rem;
   }
 
-  a{
+  a {
     position: absolute;
     top: 0;
     left: 0;
-    
   }
 `;
 
@@ -131,6 +130,7 @@ export default function AddLessonPage() {
             type="text"
             placeholder="Title"
             name="title"
+            maxLength="80"
             ref={register({
               required: true,
               maxLength: 80,
@@ -172,6 +172,7 @@ export default function AddLessonPage() {
           <textarea
             name="description"
             placeholder="Description"
+            maxLength="160"
             ref={register({
               required: true,
               maxLength: 160,
