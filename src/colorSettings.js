@@ -10,7 +10,7 @@ export const subjects = [
     {subject: "History", color: "#47624F"},
     {subject: "Maths", color: "#42CAFD"}, 
     {subject: "Music", color: "#1D4E89"},
-    {subject: "Physical Education", color: "#FCFC62"},
+    {subject: "Physical Education", color: "#FA9111"},
     {subject: "Physics", color: "#F72585"},
     {subject: "Religion/Ethics", color: "#BFCDE0"}, 
     {subject: "Spanish", color: "#72A98F"},

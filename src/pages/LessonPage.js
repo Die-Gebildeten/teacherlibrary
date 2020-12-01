@@ -3,11 +3,12 @@ import React, {
   useState,
 } from "react";
 import LessonCard from "../components/LessonCard";
-import { subjects } from "../globalSettings";
+import { subjects } from "../colorSettings";
 import CardSection from "../components/CardSection";
-import {fetchLessons} from "../api/lessons";
+import { fetchLessons} from "../api/lessons";
 import AddLessonCard from "../components/AddLessonCard";
-
+import {deleteUnit} from "../graphql/mutations";
+import {API} from "aws-amplify";
 
 function LessonPage(props) {
   const [
@@ -28,6 +29,17 @@ function LessonPage(props) {
     return foundSubject.color;
   }
 
+  async function handleDelete(id){
+    try{
+      const newLessonsArray = lessons.filter(lesson=> lesson.id!== id);
+      setLessons(newLessonsArray);
+      await API.graphql({query: deleteUnit, variables: {input: {id}}})
+    }
+    catch(e){
+      console.log(e);
+    }
+  }
+
   return (
     <CardSection>
     <AddLessonCard link="/add"/>
@@ -45,6 +57,7 @@ function LessonPage(props) {
           tag3={lesson.tag3}
           tag4={lesson.tag4}
           link={lesson.file}
+          handleDelete={() => handleDelete(lesson.id)}
         />
       ))}
     </CardSection>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 14.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 43363)  -->
+<svg
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:cc="http://web.resource.org/cc/"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+    xmlns:ns1="http://sozi.baierouge.fr"
+    id="Layer_1"
+    enable-background="new 0 0 720 720"
+    xml:space="preserve"
+    viewBox="0 0 720 720"
+    version="1.1"
+    y="0px"
+    x="0px"
+  >
+<linearGradient
+      id="SVGID_1_"
+      y2="156.23"
+      gradientUnits="userSpaceOnUse"
+      x2="452.38"
+      y1="519.23"
+      x1="234.38"
+    >
+	<stop
+        style="stop-color:#FFFFFF"
+        offset="0"
+    />
+	<stop
+        style="stop-color:#000000"
+        offset="1"
+    />
+</linearGradient
+  >
+<path
+      d="m250.94 201.23s29.016 234.71 40.586 252.07 78.422 19.008 78.422 19.008 66.852-1.652 78.422-19.008 40.586-252.07 40.586-252.07h0.001s-41.323-20.228-119.01-20.228-119.01 20.23-119.01 20.23z"
+      fill="url(#SVGID_1_)"
+  />
+<linearGradient
+      id="SVGID_2_"
+      y2="486.81"
+      gradientUnits="userSpaceOnUse"
+      x2="577.8"
+      y1="183.81"
+      x1="220.8"
+    >
+	<stop
+        style="stop-color:#FFFFFF"
+        offset="0"
+    />
+	<stop
+        style="stop-color:#000000"
+        offset="1"
+    />
+</linearGradient
+  >
+<path
+      d="m369.95 222.24c-80.992 0-119.01-21.01-119.01-21.01s29.016 234.71 40.586 252.07 78.422 19.008 78.422 19.008 66.852-1.652 78.422-19.008 40.586-252.07 40.586-252.07-38.02 21.01-119.01 21.01z"
+      fill="url(#SVGID_2_)"
+  />
+<metadata
+    ><rdf:RDF
+      ><cc:Work
+        ><dc:format
+          >image/svg+xml</dc:format
+        ><dc:type
+            rdf:resource="http://purl.org/dc/dcmitype/StillImage"
+        /><cc:license
+            rdf:resource="http://creativecommons.org/licenses/publicdomain/"
+        /><dc:publisher
+          ><cc:Agent
+              rdf:about="http://openclipart.org/"
+            ><dc:title
+              >Openclipart</dc:title
+            ></cc:Agent
+          ></dc:publisher
+        ><dc:title
+          >Trash Can</dc:title
+        ><dc:date
+          >2011-03-17T22:44:03</dc:date
+        ><dc:description
+          >A simple trash can.</dc:description
+        ><dc:source
+          >https://openclipart.org/detail/128113/trash-can-by-jgm104</dc:source
+        ><dc:creator
+          ><cc:Agent
+            ><dc:title
+              >jgm104</dc:title
+            ></cc:Agent
+          ></dc:creator
+        ><dc:subject
+          ><rdf:Bag
+            ><rdf:li
+              >can</rdf:li
+            ><rdf:li
+              >garbage</rdf:li
+            ><rdf:li
+              >glass</rdf:li
+            ><rdf:li
+              >recycle</rdf:li
+            ><rdf:li
+              >refuse</rdf:li
+            ><rdf:li
+              >shot</rdf:li
+            ><rdf:li
+              >shot glass</rdf:li
+            ><rdf:li
+              >trash</rdf:li
+            ><rdf:li
+              >waste</rdf:li
+            ></rdf:Bag
+          ></dc:subject
+        ></cc:Work
+      ><cc:License
+          rdf:about="http://creativecommons.org/licenses/publicdomain/"
+        ><cc:permits
+            rdf:resource="http://creativecommons.org/ns#Reproduction"
+        /><cc:permits
+            rdf:resource="http://creativecommons.org/ns#Distribution"
+        /><cc:permits
+            rdf:resource="http://creativecommons.org/ns#DerivativeWorks"
+        /></cc:License
+      ></rdf:RDF
+    ></metadata
+  ></svg
+>

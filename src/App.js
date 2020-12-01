@@ -5,7 +5,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
 } from "react-router-dom";
 import {
   AmplifyAuthenticator,
@@ -50,9 +49,6 @@ function App() {
         <Router>
           <Switch>
             <Route path="/add">
-              <Link to="/">
-                Back to Main Page
-              </Link>
               <AddLessonPage />
             </Route>
             <Route path="/">

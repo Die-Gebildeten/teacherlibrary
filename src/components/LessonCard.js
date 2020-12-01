@@ -4,6 +4,7 @@ import DownloadLink from "./DownloadLink";
 import CardLabel from "./CardLabel";
 import CardTag from "./CardTag";
 import Card from "./Card";
+import DeleteButton from "./DeleteButton";
 
 
 const UpperCard = styled.div`
@@ -48,6 +49,12 @@ const LowerCard = styled.div`
     padding: 10px;
     margin-top: 10px;
   }
+
+  button{
+    position: absolute;
+    bottom: 3%;
+    left: 3%;
+  }
 `;
 const CardSideTags = styled.div`
   display: flex;
@@ -76,6 +83,7 @@ function LessonCard({
   tag3,
   tag4,
   link,
+  handleDelete
 }) {
   return (
     <Card>
@@ -107,6 +115,7 @@ function LessonCard({
             </CardTag>
           )}
         </CardSideTags>
+        <DeleteButton handleClick= {handleDelete}/>
       </LowerCard>
     </Card>
   );

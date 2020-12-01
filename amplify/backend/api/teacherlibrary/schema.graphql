@@ -1,4 +1,4 @@
-type Unit @model {
+type Unit @model @auth(rules: [{allow: owner, operations: [create, update, delete]}]) {
   id: ID!
   title: String!
   subject: String!

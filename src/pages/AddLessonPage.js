@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import {
-  postLessonGraphQL,
-} from "../api/lessons";
-import { subjects } from "../globalSettings";
+import { postLessonGraphQL } from "../api/lessons";
+import { subjects } from "../colorSettings";
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   font-family: "Lucida Sans";
@@ -19,6 +18,13 @@ const Container = styled.div`
   h1 {
     font-weight: normal;
     font-size: 1.5rem;
+  }
+
+  a{
+    position: absolute;
+    top: 0;
+    left: 0;
+    
   }
 `;
 
@@ -36,16 +42,14 @@ const Form = styled.form`
     box-shadow: 2px 2px 5px
       rgba(0, 0, 0, 0.2);
   }
- 
+
   input[type="submit"] {
     background-color: #4287f5;
     color: white;
     font-weight: bolder;
-
-
   }
 
-  p{
+  p {
     background-color: darkred;
     padding: 3px;
     color: white;
@@ -89,24 +93,33 @@ export default function AddLessonPage() {
     ""
   );
 
-   const [isSubmitting, setIsSubmitting] = useState(false); 
+  const [
+    isSubmitting,
+    setIsSubmitting,
+  ] = useState(false);
 
   async function onSubmit(data) {
-    try{
+    try {
       setIsSubmitting(true);
-   await postLessonGraphQL(data);
-    setIsSubmitting(false);
-    alert ("Your unit has been uploaded")
-    }
-    catch(e){
+      await postLessonGraphQL(data);
+      setIsSubmitting(false);
+      alert(
+        "Your unit has been uploaded"
+      );
+    } catch (e) {
       setIsSubmitting(true);
-      alert ("Oops, something went wrong! Please try again...")
+      alert(
+        "Oops, something went wrong! Please try again..."
+      );
       setIsSubmitting(false);
     }
   }
 
   return (
     <Container>
+      <Link to="/">
+        Back to Main Page
+      </Link>
       <h1>Add a Unit</h1>
       <Form
         onSubmit={handleSubmit(
@@ -122,8 +135,10 @@ export default function AddLessonPage() {
               required: true,
               maxLength: 80,
             })}
-            />
-            {errors.title && <p>Please enter a title</p>}
+          />
+          {errors.title && (
+            <p>Please enter a title</p>
+          )}
           <CharacterCounter>
             {80 - watchTitle.length}{" "}
           </CharacterCounter>
@@ -139,18 +154,20 @@ export default function AddLessonPage() {
             selected
             disabled
             hidden
-            >
+          >
             choose subject
           </option>
           {subjects.map((subject) => (
             <option
-            value={subject.subject}
+              value={subject.subject}
             >
               {subject.subject}
             </option>
           ))}
         </select>
-          {errors.subject && <p>Please choose a subject</p>}
+        {errors.subject && (
+          <p>Please choose a subject</p>
+        )}
         <MaxLengthInput>
           <textarea
             name="description"
@@ -159,14 +176,18 @@ export default function AddLessonPage() {
               required: true,
               maxLength: 160,
             })}
-            />
+          />
           <CharacterCounter>
             {" "}
             {160 -
               watchDescription.length}
           </CharacterCounter>
         </MaxLengthInput>
-        {errors.description && <p>Please describe your unit</p>}
+        {errors.description && (
+          <p>
+            Please describe your unit
+          </p>
+        )}
         <select
           name="grade"
           ref={register({
@@ -209,7 +230,9 @@ export default function AddLessonPage() {
             12
           </option>
         </select>
-        {errors.grade && <p>Please choose a grade</p>}
+        {errors.grade && (
+          <p>Please choose a grade</p>
+        )}
         <input
           type="text"
           placeholder="tag1"
@@ -219,7 +242,12 @@ export default function AddLessonPage() {
             maxLength: 100,
           })}
         />
-         {errors.tag1 && <p>Please choose at least one tag</p>}
+        {errors.tag1 && (
+          <p>
+            Please choose at least one
+            tag
+          </p>
+        )}
         <input
           type="text"
           placeholder="tag2"
@@ -241,10 +269,10 @@ export default function AddLessonPage() {
           placeholder="tag4"
           name="tag4"
           ref={register({
-          maxLength: 100,
-           })}
+            maxLength: 100,
+          })}
         />
-  
+
         <input
           type="file"
           name="file"
@@ -253,9 +281,21 @@ export default function AddLessonPage() {
             required: true,
           })}
         />
-        {errors.file && <p>Please choose a file to upload</p>}
-        <input type="submit" disabled = {isSubmitting} value= {isSubmitting ? "Uploading..." : "Submit"}/>
-        
+        {errors.file && (
+          <p>
+            Please choose a file to
+            upload
+          </p>
+        )}
+        <input
+          type="submit"
+          disabled={isSubmitting}
+          value={
+            isSubmitting
+              ? "Uploading..."
+              : "Submit"
+          }
+        />
       </Form>
     </Container>
   );

@@ -1,5 +1,5 @@
 import {
-  createUnit,
+  createUnit, deleteUnit
 } from "../graphql/mutations";
 import { listUnits } from "../graphql/queries";
 import {
@@ -62,3 +62,9 @@ export async function fetchLessons(updateState) {
     apiData.data.listUnits.items
   );
 }
+
+// export async function deleteLesson({id, lessons, setLessons}){
+//   const newLessonsArray = lessons.filter(lesson=> lesson.id!== id);
+//   setLessons(newLessonsArray);
+//   await API.graphql({query: deleteUnit, variables: {input: {id}}})
+// }
