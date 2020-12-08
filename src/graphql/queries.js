@@ -16,6 +16,7 @@ export const getUnit = /* GraphQL */ `
       file
       createdAt
       updatedAt
+    
     }
   }
 `;
@@ -38,7 +39,6 @@ export const listUnits = /* GraphQL */ `
         tag4
         file
         createdAt
-        updatedAt
       }
       nextToken
     }

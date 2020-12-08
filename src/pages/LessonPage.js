@@ -8,7 +8,8 @@ import CardSection from "../components/CardSection";
 import { fetchLessons} from "../api/lessons";
 import AddLessonCard from "../components/AddLessonCard";
 import {deleteUnit} from "../graphql/mutations";
-import {API} from "aws-amplify";
+import {API, Auth} from "aws-amplify";
+import SubjectSelector from "../components/SubjectSelector";
 
 function LessonPage(props) {
   const [
@@ -19,8 +20,11 @@ function LessonPage(props) {
     fetchLessons(setLessons);
   }, []);
 
+  const [selectedSubject, setSelectedSubject] = useState("");
+const filteredLessons = lessons.filter(lesson => lesson.subject.includes(selectedSubject));
 
 
+  Auth.currentAuthenticatedUser().then(user=>console.log(user));
   function findLessonColor(subjectDB) {
     const foundSubject = subjects.find(
       (subject) =>
@@ -41,15 +45,17 @@ function LessonPage(props) {
       }
     }
     catch(e){
-      alert("You are only permitted to delete your own lessons");
+      alert("Your request failed. You are only allowed to delete lessons that you submitted.");
       console.log(e);
     }
   }
 
   return (
+    <>
+      <SubjectSelector onChange= {e => setSelectedSubject(e.target.value)}/>
     <CardSection>
     <AddLessonCard link="/add"/>
-      {lessons?.map((lesson) => (
+      {filteredLessons?.map((lesson) => (
         <LessonCard
           key={lesson.id}
           label={lesson.grade}
@@ -67,6 +73,7 @@ function LessonPage(props) {
         />
       ))}
     </CardSection>
+    </>
   );
 }
 

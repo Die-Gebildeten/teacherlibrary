@@ -52,6 +52,7 @@ function App() {
               <AddLessonPage />
             </Route>
             <Route path="/">
+
               <LessonPage />
               <AmplifySignOut />
             </Route>
